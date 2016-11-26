@@ -1,6 +1,6 @@
 <?php
 
-include "sidebar-nologin.html";
+include ("sidebar-nologin.html");
 ?>
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		<h2 class="placeholder">Registro</h2>
@@ -17,7 +17,7 @@ include "sidebar-nologin.html";
 				<div class="form-group">
 					<label class="col-md-2">Correo</label>
 					<div class="col-md-4">
-						<input type="text" name="Correo"  class="form-control" name="Nombre" />
+						<input type="email" name="Correo"  class="form-control" name="Nombre" />
 
 					</div>
 				</div>
@@ -33,7 +33,7 @@ include "sidebar-nologin.html";
 				<div class="form-group">
 					<label class="col-md-2">Contraseña</label>
 					<div class="col-md-4">
-						<input type="text" name="Contra"  class="form-control" name="Nombre" />
+						<input type="password" name="Contra"  class="form-control" name="Nombre" />
 
 					</div>
 				</div>
@@ -42,7 +42,7 @@ include "sidebar-nologin.html";
 				<div class="form-group">
 					<label class="col-md-2">Confirmar contraseña</label>
 					<div class="col-md-4">
-						<input type="text" name="ConfContra"  class="form-control" name="Nombre" />
+						<input type="password" name="ConfContra"  class="form-control" name="Nombre" />
 
 					</div>
 				</div>
