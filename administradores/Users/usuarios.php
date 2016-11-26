@@ -12,6 +12,7 @@ include ("getUsers.php");
                     <td>Nombre de usuario</td>
                     <td>Email</td>
                     <td>Domicilio</td>
+                    <td></td>
                 </tr>
             </thead>
             <tbody>
@@ -24,10 +25,14 @@ include ("getUsers.php");
                         '<td>'.$usuario["NombreUsuario"] . '</td>'.
                         '<td>'.$usuario["Correo"] . '</td>'.
                         '<td>'.$usuario["Domicilio"] . '</td>'.
+                        '<td><a class="btn btn-default" href="'.url("Users/editarUsuario.php", array("usuario" => $usuario["Id"]))
+                        .'?usuario='. $usuario["Id"] . '">'.
+                        '<span class="glyphicon glyphicon-pencil"></span></a>'.
                         '<tr>';
                     }
                     
                 ?>
             </tbody>
         </table>
+
     </div>
