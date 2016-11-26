@@ -12,7 +12,7 @@ if(isset($_GET["pagina"])){
         $pagina = $_GET["pagina"];
     }
 }
-?>
+?> 
 
 </head>
 <body>
