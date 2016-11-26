@@ -5,7 +5,7 @@ include "sidebar-nologin.html";
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		<h2 class="placeholder">Registro</h2>
 
-		<form action="registroScript.php" method="POST" enctype="multipart/form-data">
+		<form action="NoLogueado/registroScript.php" method="POST" enctype="multipart/form-data">
 			<div class="row">
 				<div class="form-group">
 					<label class="col-md-2">Nombre</label>
