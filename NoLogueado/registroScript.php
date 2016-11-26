@@ -33,7 +33,7 @@ else
 {
     $nr = mysqli_num_rows($resultado);
     if($nr >= 1)
-        header("Location:index.php?e=Ya se encuentra en uso este nombre de usuario");
+        header("Location:../index.php?e=Ya se encuentra en uso este nombre de usuario");
     else
     {
 
@@ -43,7 +43,7 @@ else
              "'$numero', '$destino', '2')";
              echo $consulta;
         if (mysqli_query($conecta, $consulta)) {
-            header("Location:index.php");
+            header("Location:../index.php");
         } else {
             echo "Error: " . $consulta . "<br>" . mysqli_error($conn) . $contra;
         }
