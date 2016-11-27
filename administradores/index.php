@@ -5,6 +5,8 @@ include("../utils.php");
 <head>
 <?php
 include("links.html");
+include("scripts.html");
+
 $pagina = "inicio.php";
 if(isset($_GET["pagina"])){
     if($_GET["pagina"] != "")
@@ -25,7 +27,8 @@ if(isset($_GET["pagina"])){
     
     <?php
     include("../footer.html");
-    include("../scripts.html");
+    
     ?>
+    
 </body>
 </html>

@@ -28,12 +28,12 @@ function ejecutaMuchosResultados($cadena) // devuelve un arreglo con los resulta
     return $arrayResultado;
 }
 
-function ejecutaUnResultado(){
+function ejecutaUnResultado($cadena){
     global $conecta;
     $resultado = mysqli_query($conecta, $cadena);
     if($resultado)
     {
-        return mysqli_fetch_row($resultado);
+        return mysqli_fetch_assoc($resultado);
     }
     return false;
 }
