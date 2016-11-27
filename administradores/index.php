@@ -1,11 +1,13 @@
 <?php
-include("utils.php");
+include("../utils.php");
 ?>
 <html>
 <head>
 <?php
 include("links.html");
-$pagina = "NoLogueado/inicio.php";
+include("scripts.html");
+
+$pagina = "inicio.php";
 if(isset($_GET["pagina"])){
     if($_GET["pagina"] != "")
     {
@@ -16,7 +18,7 @@ if(isset($_GET["pagina"])){
 
 </head>
 <body>
-    <?php include("nav.html");?>
+    <?php include("../nav.html");?>
     <div class="container-fluid">
         <div class="row">
             <?php include($pagina);?>
@@ -24,8 +26,9 @@ if(isset($_GET["pagina"])){
     </div>
     
     <?php
-    include("footer.html");
-    include("scripts.html");
+    include("../footer.html");
+    
     ?>
+    
 </body>
 </html>

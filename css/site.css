@@ -119,3 +119,7 @@ body {
 .top-row{
     margin-top:20px;
 }
+
+.image-medium{
+  max-width: 300px;
+}
