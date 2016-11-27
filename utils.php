@@ -1,4 +1,5 @@
 <?php
+
 function nombreAplicacion()
 {
     return "Super Market";

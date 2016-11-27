@@ -43,7 +43,7 @@ include ("getUsers.php");
                     var Id  = event.srcElement.dataset["usuario"];
                     console.log(event.srcElement);
                     if(confirm("Seguro que deseas eliminar")){
-                        window.location =window.location.origin + "/Proyecto/administradores/Users/deleteUser.php?usuario=" + Id;
+                        window.location =getUrl() + "/administradores/Users/deleteUser.php?usuario=" + Id;
                     }
                 }
 

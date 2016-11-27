@@ -70,7 +70,7 @@ include ("sidebar-nologin.html");
 				<div class="form-group">
 					<label class="col-md-2">Foto</label>
 					<div class="col-md-4">
-						<input type="file" name="Foto" />
+						<input required type="file" name="Foto" />
 
 					</div>
 				</div>

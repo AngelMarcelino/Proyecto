@@ -45,7 +45,7 @@ include ("getArticles.php");
                     var Id  = event.srcElement.dataset["articulo"];
                     console.log(event.srcElement);
                     if(confirm("Seguro que deseas eliminar")){
-                        window.location =window.location.origin + "/Proyecto/usuarios/Articles/deleteArticle.php?articulo=" + Id;
+                        window.location =getUrl() + "/usuarios/Articles/deleteArticle.php?articulo=" + Id;
                     }
                 }
 

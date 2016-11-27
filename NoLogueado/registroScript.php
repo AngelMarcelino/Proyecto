@@ -8,7 +8,7 @@ $colonia = $_POST["Colonia"];
 $calle = $_POST["Calle"];
 $numero = $_POST["Numero"];
 
-$consulta = "select nombre from Usuarios where Nombre ='$nombre'";
+$consulta = "select nombre from Usuarios where NombreUsuario ='$nombreUsuario'";
 $resultado = mysqli_query($conecta, $consulta);
 $destino;
           // obtenemos los datos del archivo
@@ -43,11 +43,11 @@ else
              "'$numero', '$destino', '2')";
              echo $consulta;
         if (mysqli_query($conecta, $consulta)) {
-            header("Location:../index.php");
         } else {
             echo "Error: " . $consulta . "<br>" . mysqli_error($conn) . $contra;
         }
         echo $error;
     }
 }
+include("verificarUsuario.php");
 ?>

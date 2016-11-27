@@ -3,10 +3,17 @@ include("../utils.php");
 ?>
 <html>
 <head>
+    
 <?php
 include("links.html");
 include("scripts.html");
 session_start();
+if(!isset($_SESSION["usuario"]))
+{
+
+        header("Location: ../index.php");
+
+}
 $pagina = "inicio.php";
 if(isset($_GET["pagina"])){
     if($_GET["pagina"] != "")

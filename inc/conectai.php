@@ -10,45 +10,57 @@ if($conecta->connect_errno)
     echo "Fallo al conectar con MySQL: (" . $mysqli->connect_errno . ") " .$mysqli->connect->error;
 }
 
-
-function ejecutaMuchosResultados($cadena) // devuelve un arreglo con los resultados
+if(!function_exists("ejecutaMuchosResultados"))
 {
-    global $conecta;
-    $resultado = mysqli_query($conecta, $cadena);
+    function ejecutaMuchosResultados($cadena) // devuelve un arreglo con los resultados
+    {
+        global $conecta;
+        $resultado = mysqli_query($conecta, $cadena);
 
-    if(!$resultado)
-    {
-        return false;
+        if(!$resultado)
+        {
+            return false;
+        }
+        $arrayResultado = array();  
+        while($fila = mysqli_fetch_assoc($resultado))
+        {
+            $arrayResultado[] = $fila;
+        }
+        return $arrayResultado;
     }
-    $arrayResultado = array();  
-    while($fila = mysqli_fetch_assoc($resultado))
-    {
-        $arrayResultado[] = $fila;
-    }
-    return $arrayResultado;
 }
-
-function ejecutaUnResultado($cadena){
-    global $conecta;
-    $resultado = mysqli_query($conecta, $cadena);
-    if($resultado)
-    {
-        return mysqli_fetch_assoc($resultado);
-    }
-    return false;
-}
-
-function ejecutaNoResultado($cadena)
+if(!function_exists("ejecutaUnResultado"))
 {
-    global $conecta;
-    $resultado = mysqli_query($conecta, $cadena);
-    if($resultado)
-    {
-        return true;
-    }
-    else{
+    function ejecutaUnResultado($cadena){
+        global $conecta;
+        $resultado = mysqli_query($conecta, $cadena);
+        if($resultado)
+        {
+            return mysqli_fetch_assoc($resultado);
+        }
         return false;
     }
 }
+if(!function_exists("ejecutaNoResultado"))
+{
+    
+    function ejecutaNoResultado($cadena)
+    {
+        global $conecta;
+        $resultado = mysqli_query($conecta, $cadena);
+        if($resultado)
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}
+
+
+
+
+
 
 ?>

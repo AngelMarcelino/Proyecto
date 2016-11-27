@@ -1,5 +1,17 @@
 <?php
 include("utils.php");
+session_start();
+if(isset($_SESSION["usuario"]))
+{
+    if($_SESSION["usuario"]["IdNivel"]==2)
+    {
+        header("Location: usuarios/index.php");
+    }
+    else{
+        header("Location: administradores/index.php");
+
+    }
+}
 ?>
 <html>
 <head>

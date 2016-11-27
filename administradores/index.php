@@ -1,5 +1,12 @@
 <?php
 include("../utils.php");
+session_start();
+if(!isset($_SESSION["usuario"]))
+{
+
+        header("Location: ../index.php");
+
+}
 ?>
 <html>
 <head>
@@ -14,6 +21,7 @@ if(isset($_GET["pagina"])){
         $pagina = $_GET["pagina"];
     }
 }
+
 ?> 
 
 </head>
