@@ -3,7 +3,7 @@ include("../inc/conectai.php");
 //Valida el usuario en la base de datos
 $nombre = $_POST["NombreUsuario"];
 $contra  = $_POST["Contra"];
-$consulta = " select IdNivel, Nombre, Foto from Usuarios where NombreUsuario ='$nombre' and contra = md5('$contra')";
+$consulta = " select IdNivel, Id, Nombre, Foto from Usuarios where NombreUsuario ='$nombre' and contra = md5('$contra')";
 $resultado = mysqli_query($conecta, $consulta);
 echo $consulta;
 if(!$resultado)

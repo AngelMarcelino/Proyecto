@@ -1,0 +1,54 @@
+<?php
+
+include ("sidebar-user.html");
+include ("getArticles.php");
+?>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h2 class="placeholder">Articulos</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <td>Nombre</td>
+                    <td>Descripci&oacute;n</td>
+                    <td>Categoria</td>
+                    <td>Precio de venta</td>
+                    <td>Cantidad</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    for($u = 0; $u < count($articulos); $u++)
+                    {
+                        $articulo = $articulos[$u];
+                        echo '<tr>'.
+                        '<td>'.$articulo["Nombre"] . '</td>'.
+                        '<td>'.$articulo["Descripcion"] . '</td>'.
+                        '<td>'.$articulo["Categoria"] . '</td>'.
+                        '<td>'.$articulo["PrecioVenta"] . '</td>'.
+                        '<td>'.$articulo["Cantidad"] . '</td>'.
+                        '<td><a class="btn btn-default" href="'.urlParams("Articles/editarArticulo.php", array("articulo" => $articulo["Id"]))
+                        .
+                        '"><span class="glyphicon glyphicon-pencil"></span></a>'.
+                        '<a class="btn btn-danger" onclick="deleteArticle(event)" data-articulo="'. $articulo['Id']. '"><span class="glyphicon glyphicon-trash"></a></tr>'.
+
+                        '<tr>';
+                    }
+                    
+                ?>
+            </tbody>
+        </table>
+        <script>
+
+                function deleteArticle(event)
+                {
+                    var Id  = event.srcElement.dataset["articulo"];
+                    console.log(event.srcElement);
+                    if(confirm("Seguro que deseas eliminar")){
+                        window.location =window.location.origin + "/Proyecto/usuarios/Articles/deleteArticle.php?articulo=" + Id;
+                    }
+                }
+
+            
+        </script>
+    </div>
