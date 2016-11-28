@@ -8,9 +8,11 @@ include("sidebar-user.html");
 </script>
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-		<h2 class="placeholder">Editar articulo</h2>
-        <img class="image-medium" src="../<?php echo $articulo['Foto'] ?>">
-        <form action="Articles/editArticle.php" method="post" enctype="multipart/form-data">
+		<div class="jumbotron">
+			<h1>Editar articulo</h1>
+        	<img class="image-medium" src="../<?php echo $articulo['Foto'] ?>">
+			
+			<form action="Articles/editArticle.php" method="post" enctype="multipart/form-data">
 			<div class="row top-row">
 				<div class="form-group">
 					<label class="col-md-2">Nombre</label>
@@ -65,7 +67,7 @@ include("sidebar-user.html");
 				<div class="form-group">
 					<label class="col-md-2">Foto</label>
 					<div class="col-md-4">
-						<input type="file" name="Foto" name="Nombre" />
+						<input type="file" required name="Foto" name="Nombre" />
 						<input type="hidden" name="Id" value="<?php echo $articulo["Id"] ?>" />
 					</div>
 				</div>
@@ -77,5 +79,7 @@ include("sidebar-user.html");
 				</div>
 			</div>
 		</form>
+		</div>
+        
         
     </div>

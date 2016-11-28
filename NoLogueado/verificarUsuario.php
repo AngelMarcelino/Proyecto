@@ -34,7 +34,7 @@ else
     else
     {
         $error = "No se encuentra";
-        header("Location:../index.php?e=$error");
+        header("Location:../index.php?notificacion=$error");
         echo $error;
     }
 }

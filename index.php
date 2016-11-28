@@ -1,8 +1,10 @@
 <?php
 include("utils.php");
 session_start();
+$logueado =false;
 if(isset($_SESSION["usuario"]))
 {
+    $logueado = true;
     if($_SESSION["usuario"]["IdNivel"]==2)
     {
         header("Location: usuarios/index.php");

@@ -8,10 +8,13 @@ include("../utils.php");
 include("links.html");
 include("scripts.html");
 session_start();
+$logueado = false;
 if(!isset($_SESSION["usuario"]))
 {
-
-        header("Location: ../index.php");
+    global $logueado;
+    $loguado = true;
+    echo "ddd";
+    header("Location: ../index.php");
 
 }
 $pagina = "inicio.php";

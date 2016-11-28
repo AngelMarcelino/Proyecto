@@ -1,9 +1,10 @@
 <?php
 include("../utils.php");
 session_start();
+$logueado = false;
 if(!isset($_SESSION["usuario"]))
 {
-
+    $logueado = true;
         header("Location: ../index.php");
 
 }

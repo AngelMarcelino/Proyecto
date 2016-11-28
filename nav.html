@@ -9,6 +9,9 @@ function goTo(event, msg)
         case "CerrarSesion":
             window.location = getUrl() + "/cerrarSesion.php";
             break;
+        case "Foro":
+            window.location = getUrl() + "/usuarios/index.php?pagina=Foro/lista.php";
+            break;
     }
 }
 </script>
@@ -34,7 +37,13 @@ function goTo(event, msg)
         <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Informaci&oacute;n</a></li>
         <li><a href="#">Contacto</a></li>
-        <li><a href="#">Foro</a></li>
+        <?php
+            if(isset($_SESSION["usuario"])) 
+            {
+                echo '<li><a onclick="goTo(event, \'Foro\')" href="#">Foro</a></li>'; 
+            }
+                
+        ?>
         <li><a href="#">Manuales</a></li>
         <li><a href="#">Mapa del sitio</a></li>
         <li><a onclick="goTo(event, 'CerrarSesion')" href="#">Cerrar sesion</a></li>

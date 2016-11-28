@@ -7,14 +7,17 @@ $consulta = "select * from Categorias";
 $categorias = ejecutaMuchosResultados($consulta);
 
 ?>
+<input type="hidden" value="<?php echo $articulo["Id"]?>" id="IdArticulo" />
 <script>
     function carritoDeCompras()
     {
-        window.location = window.location.href.replace("Catalog/vistaArticulo.php", "carritoCompras") + "&cantidad";
+        var cantidad = parseInt($("#cantidad").val())
+        var IdArticulo = $("#IdArticulo").val();
+        window.location = window.location = getUrl() + "/usuarios/carritoCompras.php?articulo=" + IdArticulo + "&cantidad=" + cantidad;
     }
 </script>
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-
+        
         <div class="row">	
             <div class="col-md-5">
                 <div class="product col-md-12 service-image-left">
@@ -42,8 +45,8 @@ $categorias = ejecutaMuchosResultados($consulta);
                 ?>
                 <hr>
                 <div class="btn-group cart">
-                    <input/>
-                    <button type="button" class="btn btn-success">
+                    <input class="form-control" step="1" min="1" max="100" type="number" pattern="^\d+$" value="1" id="cantidad"/>
+                    <button onclick="carritoDeCompras()" type="button" class="btn btn-success">
                         Agregar al carrito
                     </button>
                 </div>

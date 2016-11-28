@@ -5,7 +5,19 @@
 /*********************************************
 					PRODUCTS
 *********************************************/
+#mycarousel h3 {
+  display: inline-block;
+  padding: 10px;
+  background: #B9121B;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
 
+.full-screen {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 .product{
 	border: 1px solid #dddddd;
 	height: 321px;
@@ -30,6 +42,7 @@
 
 .product-price{
 	font-size: 22px;
+  color:firebrick;
 }
 
 .product-stock{
@@ -126,7 +139,8 @@
 }
 
 .service-image-left > center > img,.service-image-right > center > img{
-	max-height: 155px;
+	    max-width: 100%;
+    max-height: 319px;
 }
 
 /*
@@ -290,4 +304,24 @@ body {
 .price
 {
   color: firebrick;
+}
+
+body{
+  padding-bottom: 100px;
+}
+
+.container-fluid
+{
+  overflow: auto;
+}
+
+.media-object
+{
+  width: 64px;
+    height: 64px;
+}
+
+.media-heading
+{
+  width: 500px;
 }

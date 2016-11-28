@@ -7,9 +7,10 @@ $consulta = "select * from Categorias";
 $categorias = ejecutaMuchosResultados($consulta);
 ?>
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-		<h2 class="placeholder">Agregar un nuevo articulo</h2>
-
-		<form action="Articles/addArticle.php" method="post" enctype="multipart/form-data">
+		<div class="jumbotron">
+			<h1>Agregar un nuevo articulo</h1>
+			<p></p>
+			<form action="Articles/addArticle.php" method="post" enctype="multipart/form-data">
 			<div class="row top-row">
 				<div class="form-group">
 					<label class="col-md-2">Nombre</label>
@@ -71,4 +72,6 @@ $categorias = ejecutaMuchosResultados($consulta);
 				</div>
 			</div>
 		</form>
+		</div>
+		
 	</div>
