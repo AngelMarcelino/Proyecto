@@ -1,5 +1,5 @@
 
-
+<hr/>
 <div style="margin-bottom: 20px;" class="media">
     <div class="media-left media-middle">
         <a href="#"> 

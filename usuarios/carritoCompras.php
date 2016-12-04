@@ -6,7 +6,7 @@ $idArticulo = $_GET["articulo"];
 $cantidad = $_GET["cantidad"];
 $idUsuario = $_SESSION["usuario"]["Id"];
 $articulo = ejecutaUnResultado("select * from Articulos where Id = " . $idArticulo);
-$consulta = "select * from UsuariosArticulos where IdArticulo = " . $idArticulo;
+$consulta = "select * from UsuariosArticulos where IdArticulo = " . $idArticulo .  " and IdUsuario =" . $idUsuario;
 $resultado = mysqli_query($conecta, $consulta);
 if($resultado)
 {

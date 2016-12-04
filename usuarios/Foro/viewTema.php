@@ -3,45 +3,37 @@ include("sidebar-user.html");
 include("Foro/getTheme.php");
 ?>
 
+
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <div class="jumbotron">
-        <h1> <?php echo $tema["NombreTema"]; ?></h1>
-        <p>De que tratará?</p>
-        
-        <form action="Foro/newTheme.php" method="post" enctype="multipart/form-data">
+        <h1><?php echo $tema["NombreTema"]; ?></h1>
+        <span><?php echo $tema["NombreUsuario"] . " - " . $tema["FechaCreacion"];  ?></span>
+        <p><?php echo $tema["Contenido"]?></p>
+        <hr/>
+        <?php
+            for($a = 0; $a < count($comentarios); $a ++)
+            {
+                $comentario = $comentarios[$a];
+                include("Foro/comentarioTemplate.php");
+            }
+        ?>
+        <form action="Foro/newCommentary.php" method="post" enctype="multipart/form-data">
+               
                 <div class="row top-row">
                     <div class="form-group">
-                        <label class="col-md-2">Nombre</label>
-                        <div class="col-md-4">
-                            <input type="text" required name="Nombre" class="form-control" />
-
-                        </div>
-
-                        <label class="col-md-2">Categoria</label>
-                        <div class="col-md-4">
-                            <select name="IdCategoria" required class="form-control">
-                                <?php
-                                $categorias = ejecutaMuchosResultados("select * from CategoriaTemas");
-                                    for($a = 0; $a < count($categorias); $a ++)
-                                    {
-                                        $cat = $categorias[$a];
-                                        echo '<option value="' . $cat["Id"] . '">' . $cat["Nombre"] . '</option>';
-                                    }
-                                    
-                                ?>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="row top-row">
-                    <div class="form-group">
-                        <label class="col-md-2">Contenido</label>
+                        <label class="col-md-2">Comentario</label>
                         <div class="col-md-10">
-                            <textarea name="Contenido" required class="form-control"></textarea>
+                            <textarea name="Comentario" required class="form-control"></textarea>
                         </div>
                     </div>
                 </div>
-            <p><input type="submit" class="btn btn-primary btn-lg" value="Agregar"/></p>
+                <input type="hidden" name="url" id="returnUrl"/>
+                <input type="hidden" name="IdTema" value="<?php echo $tema["IdTema"] ?>" id="returnUrl"/>
+            <p><input type="submit" class="btn btn-primary btn-lg" value="Listo"/></p>
             </form>
         </div>
+
+        <script>
+    $("#returnUrl").val(window.location.href);
+</script>
 </div>
