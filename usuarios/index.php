@@ -17,7 +17,7 @@ if(!isset($_SESSION["usuario"]))
     header("Location: ../index.php");
 
 }
-$pagina = "inicio.php";
+$pagina = "Cart/viewCarrito.php";
 if(isset($_GET["pagina"])){
     if($_GET["pagina"] != "")
     {

@@ -17,7 +17,7 @@ if($resultado)
         $cantidadExistente = intval($usuarioArticulo["Cantidad"]) + intval($cantidad);
         $consulta = "update UsuariosArticulos set " .
         "Cantidad = "  . $cantidadExistente . ", " . 
-        "SubTotal = " . $cantidadExistente * floatval($articulo["PrecioVenta"]);
+        "SubTotal = " . $cantidadExistente * floatval($articulo["PrecioVenta"]) . ' where IdArticulo = ' . $idArticulo .  ' and IdUsuario = ' . $idUsuario;
         $resultado = mysqli_query($conecta, $consulta);
         
     }
@@ -28,7 +28,7 @@ if($resultado)
     }
     if($resultado)
     {
-        header("Location: index.php?notificacion=Agregado");
+        header("Location: index.php?notificacion=Agregado&$cantidadExistente");
     }
     else{
         header("Location: index.php?notificacion=Error");

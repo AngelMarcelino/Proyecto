@@ -1,3 +1,5 @@
+
+
 <script>
 function goTo(event, msg)
 {
@@ -11,6 +13,9 @@ function goTo(event, msg)
             break;
         case "Foro":
             window.location = getUrl() + "/usuarios/index.php?pagina=Foro/lista.php";
+            break;
+        case "Informacion":
+            window.location = getUrl() + "/index.php?pagina=NavBar/informacion.html";
             break;
     }
 }
@@ -35,10 +40,10 @@ function goTo(event, msg)
     </div>
     <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Informaci&oacute;n</a></li>
+        <li><a onclick="goTo(event, 'Informacion')" href="#">Informaci&oacute;n</a></li>
         <li><a href="#">Contacto</a></li>
         <?php
-            if(isset($_SESSION["usuario"])) 
+            if(isset($_SESSION["usuario"]) && $_SESSION["usuario"]["IdNivel"] != 1) 
             {
                 echo '<li><a onclick="goTo(event, \'Foro\')" href="#">Foro</a></li>'; 
             }
@@ -46,11 +51,18 @@ function goTo(event, msg)
         ?>
         <li><a href="#">Manuales</a></li>
         <li><a href="#">Mapa del sitio</a></li>
-        <li><a onclick="goTo(event, 'CerrarSesion')" href="#">Cerrar sesion</a></li>
+        <?php
+            if(isset($_SESSION["usuario"])) 
+            {
+                echo '<li><a onclick="goTo(event, \'CerrarSesion\')" href="#">Cerrar sesion</a></li>'; 
+            }
+                
+        ?>
+        
         </ul>
-        <form class="navbar-form navbar-right">
-        <input type="text" id="search" class="form-control" placeholder="Buscar...">
-        </form>
+        <div class="navbar-form navbar-right">
+        <input disabled type="text" id="search" class="form-control" placeholder="Buscar...">
+        </div>
     </div>
     </div>
 </nav>

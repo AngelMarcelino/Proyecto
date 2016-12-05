@@ -5,15 +5,33 @@ include ("getArticles.php");
 ?>
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <h2 class="placeholder">Articulos</h2>
-        <table class="table table-bordered">
+        <div class="row">
+            <label class = "col-md-2" for="">Categoria<?php echo $categoria ?></label>
+            <div class="col-md-4">
+                <select id="select-categoria" name="IdCategoria" required class="form-control">
+                    <option value = "0">Todas...</option>
+                    <?php
+                        for($a = 0; $a < count($categorias); $a ++)
+                        {
+                            $cat = $categorias[$a];
+                            echo '<option value="' . $cat["Id"] . '">' . $cat["Nombre"] . '</option>';
+                        }
+                    ?>
+                </select>
+            </div>
+            <div class="col-md 2">
+                <button onclick="filtrar()" class="btn btn-default">Filtrar</button>
+            </div>
+        </div>
+        <table class="table table-bordered top-row">
             <thead>
                 <tr>
-                    <td>Nombre</td>
-                    <td>Descripci&oacute;n</td>
-                    <td>Categoria</td>
-                    <td>Precio de venta</td>
-                    <td>Cantidad</td>
-                    <td></td>
+                    <th>Nombre</th>
+                    <th>Descripci&oacute;n</th>
+                    <th>Categoria</th>
+                    <th>Precio de venta</th>
+                    <th>Cantidad</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -49,6 +67,41 @@ include ("getArticles.php");
                     }
                 }
 
-            
+                $("#search").on("keyup", function(e)
+                {
+                    var tds = $("td:first-child");
+                    console.log(tds);
+                    tds.each(function(i)
+                    {
+                        if(e.target.value == "")
+                        {
+                            $(this).parent().fadeIn();
+                        }
+                        else{
+                            if($(this).html().toLowerCase().includes(e.target.value.toLowerCase())
+                            || $(this).next().html().toLowerCase().includes(e.target.value.toLowerCase()))
+                            {
+                                $(this).parent().fadeIn();
+                            }
+                            else
+                            {
+                                $(this).parent().fadeOut();
+                                
+                            } 
+                        }
+                        
+                    });
+                    
+                }).prop("disabled", false);
+                function filtrar()
+                {
+                    var value = $("#select-categoria").val();
+                    if(value != 0)
+                        window.location = getUrl()+"/usuarios/index.php?pagina=Articles/articulos.html&categoria=" + value;
+                        else{
+                            window.location =getUrl() + "/usuarios/index.php?pagina=Articles/articulos.html";
+                            
+                        }
+                }
         </script>
     </div>

@@ -72,4 +72,32 @@ $categorias = ejecutaMuchosResultados($consulta);
             
             
         </div>
+        <script>
+            $("#search").on("keyup", function(e)
+                {
+                    var tds = $("h3");
+                    console.log(tds);
+                    tds.each(function(i)
+                    {
+                        if(e.target.value == "")
+                        {
+                            $(this).parent().parent().parent().fadeIn();
+                        }
+                        else{
+                            if($(this).html().toLowerCase().includes(e.target.value.toLowerCase())
+                            || $(this).next().html().toLowerCase().includes(e.target.value.toLowerCase()))
+                            {
+                                $(this).parent().parent().parent().fadeIn();
+                            }
+                            else
+                            {
+                                $(this).parent().parent().parent().fadeOut();
+                                
+                            } 
+                        }
+                        
+                    });
+                    
+                }).prop("disabled", false);
+        </script>
 </div>

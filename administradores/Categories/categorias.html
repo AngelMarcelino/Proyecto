@@ -1,34 +1,28 @@
 <?php
 
 include ("sidebar-admin.html");
-include ("getUsers.php");
+include ("getCategories.php");
 ?>
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-        <h2 class="placeholder">Usuarios</h2>
+        <h2 class="placeholder">Categorias</h2>
         <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>Nombre</th>
-                    <th>Nombre de usuario</th>
-                    <th>Email</th>
-                    <th>Domicilio</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                    for($u = 0; $u < count($usuarios); $u++)
+                    for($u = 0; $u < count($categorias); $u++)
                     {
-                        $usuario = $usuarios[$u];
+                        $categoria = $categorias[$u];
                         echo '<tr>'.
-                        '<td>'.$usuario["Nombre"] . '</td>'.
-                        '<td>'.$usuario["NombreUsuario"] . '</td>'.
-                        '<td>'.$usuario["Correo"] . '</td>'.
-                        '<td>'.$usuario["Domicilio"] . '</td>'.
-                        '<td><a class="btn btn-default" href="'.urlParams("Users/editarUsuario.php", array("usuario" => $usuario["Id"]))
+                        '<td>'.$categoria["Nombre"] . '</td>'.
+                        '<td><a class="btn btn-default" href="'.urlParams("Categories/editarCategoria.php", array("categoria" => $categoria["Id"]))
                         .
                         '"><span class="glyphicon glyphicon-pencil"></span></a>'.
-                        '<a class="btn btn-danger" onclick="deleteUser(event)" data-usuario="'. $usuario['Id']. '"><span class="glyphicon glyphicon-trash"></a></tr>'.
+                        '<a class="btn btn-danger" onclick="deleteCategory(event)" data-categoria="'. $categoria['Id']. '"><span class="glyphicon glyphicon-trash"></a></tr>'.
 
                         '<tr>';
                     }
@@ -36,16 +30,19 @@ include ("getUsers.php");
                 ?>
             </tbody>
         </table>
+            <a href="index.php?pagina=Categories/agregarCategoria.php"class="btn btn-primary btn-lg">Agregar nueva</a>
+        
         <script>
 
-                function deleteUser(event)
+                function deleteCategory(event)
                 {
-                    var Id  = event.srcElement.dataset["usuario"];
+                    var Id  = event.srcElement.dataset["categoria"];
                     console.log(event.srcElement);
                     if(confirm("Seguro que deseas eliminar")){
-                        window.location =getUrl() + "/administradores/Users/deleteUser.php?usuario=" + Id;
+                        window.location =getUrl() + "/administradores/Categories/deleteCategory.php?categoria=" + Id;
                     }
                 }
+
                 $("#search").on("keyup", function(e)
                 {
                     var tds = $("td:first-child");
@@ -57,8 +54,7 @@ include ("getUsers.php");
                             $(this).parent().fadeIn();
                         }
                         else{
-                            if($(this).html().toLowerCase().includes(e.target.value.toLowerCase())
-                            || $(this).next().html().toLowerCase().includes(e.target.value.toLowerCase()))
+                            if($(this).html().toLowerCase().includes(e.target.value.toLowerCase()))
                             {
                                 $(this).parent().fadeIn();
                             }
