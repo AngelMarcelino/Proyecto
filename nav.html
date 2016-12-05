@@ -17,6 +17,12 @@ function goTo(event, msg)
         case "Informacion":
             window.location = getUrl() + "/index.php?pagina=NavBar/informacion.html";
             break;
+        case "Contacto":
+            window.location = getUrl() + "/index.php?pagina=NavBar/Contacto.html";
+            break;
+        case "Manuales":
+            window.location = getUrl() + "/index.php?pagina=NavBar/Manuales.html";
+            break;
     }
 }
 </script>
@@ -41,7 +47,7 @@ function goTo(event, msg)
     <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
         <li><a onclick="goTo(event, 'Informacion')" href="#">Informaci&oacute;n</a></li>
-        <li><a href="#">Contacto</a></li>
+        <li><a onclick="goTo(event, 'Contacto')" href="#">Contacto</a></li>
         <?php
             if(isset($_SESSION["usuario"]) && $_SESSION["usuario"]["IdNivel"] != 1) 
             {
@@ -49,7 +55,7 @@ function goTo(event, msg)
             }
                 
         ?>
-        <li><a href="#">Manuales</a></li>
+        <li><a onclick="goTo(event, 'Manuales')" href="#">Manuales</a></li>
         <li><a href="#">Mapa del sitio</a></li>
         <?php
             if(isset($_SESSION["usuario"])) 
@@ -66,3 +72,23 @@ function goTo(event, msg)
     </div>
     </div>
 </nav>
+
+<script>
+    function findGetParameter(parameterName) {
+        var result = null,
+            tmp = [];
+        location.search
+        .substr(1)
+            .split("&")
+            .forEach(function (item) {
+            tmp = item.split("=");
+            if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+        });
+        return result;
+    }
+
+    if(findGetParameter("notificacion") != null)
+    {
+        alert(findGetParameter("notificacion"));
+    };
+</script>

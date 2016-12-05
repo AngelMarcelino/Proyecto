@@ -1,0 +1,60 @@
+<?php
+if(isset($_SESSION["usuario"]))
+{
+    if($_SESSION["usuario"]["IdNivel"] == 1)
+    {
+        include("administradores/sidebar-admin.html");
+    }
+    else if ($_SESSION["usuario"]["IdNivel"] == 2){
+        include("usuarios/sidebar-user.html");
+    }
+    else{
+        include("NoLogueado/sidebar-nologin.html");
+        
+    }
+}
+else{
+    include("NoLogueado/sidebar-nologin.html");
+}
+    
+    
+?>
+
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h2 class="placeholder">P&oacute;ngase en contacto</h2>
+    <form action="NavBar/correo.php" method="post">
+        <div class="row">
+            <div class="col-md-12">
+
+            </div>
+        </div>
+
+
+        <div class="row top-row">
+            <label class="col-md-2">Correo</label>
+            <div class="col-md-10">
+                <input required type="email" class="form-control" name="Correo">
+            </div>
+        </div>
+        <div class="row top-row">
+            <label class="col-md-2">Asunto</label>
+            <div class="col-md-10">
+                <input required type="text" class="form-control" name="Asunto"/>
+            </div>
+        </div>
+         <div class="row top-row">
+            <label class="col-md-2">Mensaje</label>
+            <div class="col-md-10">
+                <textarea required name="Mensaje" class="form-control" rows="25" id="txxtMensaje" ></textarea>
+            </div>
+        </div>
+        <div class="row top-row">
+            <div class="col-md-offset-11 col-md-1">
+                <div class="pull-right">
+                    <input type="submit" name="Enviar" value="Enviar" class="btn btn-default btn-lg">
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>

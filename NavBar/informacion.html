@@ -5,8 +5,12 @@ if(isset($_SESSION["usuario"]))
     {
         include("administradores/sidebar-admin.html");
     }
+    else if ($_SESSION["usuario"]["IdNivel"] == 2){
+        include("usuarios/sidebar-user.html");
+    }
     else{
-        include("usuarios/sidebar-user");
+        include("usuarios/sidebar-nologin.html");
+        
     }
 }
 else{
@@ -69,8 +73,18 @@ else{
                     necesitan y para encontrar ese artículo que siempre has estado buscando.
                 </p>
                 <p>
-                    Creado por Angel Marcelino Gonz&aacute;lez Mayoral estudiante del Centro de Enseñanza 
+                    <strong>Creado por:</strong> Angel Marcelino Gonz&aacute;lez Mayoral estudiante del Centro de Enseñanza 
                     T&eacute;cnica Industrial plantel Tonal&aacute
+                </p>
+                <p>
+                    <strong>Registro:</strong> 13300493
+                </p>
+
+                <p>
+                    <strong>Grupo:</strong> 7B1
+                </p>
+                <p>
+                    <strong>Materia:</strong> Introducción al desarrollo web
                 </p>
             </div>
         </div >

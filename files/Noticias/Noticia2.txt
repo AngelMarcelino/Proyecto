@@ -1,0 +1,1 @@
+<div class="media"><div class="media-left"><a href="#"><img class="media-object" src="files/imgNoticias/b3f779_Screenshot from 2016-10-27 21-32-21.png"></a></div><div class="media-body"><h4 class="media-heading">esta es la nueva noticia</h4> <i> 2016-12-05 17:08:03</i><p>fdsafsfsafdsafdas</p></div></div>

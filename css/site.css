@@ -274,14 +274,20 @@ body {
   margin-left: 50px !important;
 }
 
+.catalogo-item .thumbnail
+{
+  height: 500px;
+  
+}
+
 .catalogo-item img
 {
-  height: 250px !important;
+  height: 150px !important;
 }
 
 .catalogo-item p{
-  height: 40px;
-  overflow: hidden;
+  max-height: 133px;
+    overflow-x: auto;
 }
 
 .catalogo-item *{
@@ -290,11 +296,18 @@ body {
 .catalogo-item h3, h4{
   width: 60px;
   display: inline-block;
+  
 }
 .catalogo-item  h4{
   clear: left;
   float: right;
   margin-top: 27px;
+}
+
+.catalogo-item h3
+{
+  width: 150px;
+  overflow-x: auto;
 }
 
 .catalogo-item .categoria
@@ -352,6 +365,14 @@ body{
   margin-right: 10px;
   width: initial;
 }
+
+.catalogo-item a
+{
+      position: absolute;
+    bottom: 40;
+    right: 35px;
+}
+
 
 .col-md-12 .media-body
 {

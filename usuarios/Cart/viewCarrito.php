@@ -57,13 +57,13 @@ include ("getCartArticles.php");
                         <td>   </td>
                         <td>   </td>
                         <td>
-                        <button type="button" class="btn btn-default">
-                            <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
-                        </button></td>
+                        <a href="index.php?pagina=Catalog/catalogo.php" type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-shopping-cart"></span> Continuar comprando
+                        </a></td>
                         <td>
-                        <button type="button" class="btn btn-success">
-                            Checkout <span class="glyphicon glyphicon-play"></span>
-                        </button></td>
+                        <a href="index.php?pagina=Payment/pago.html" type="button" class="btn btn-success">
+                            Proceder al pago <span class="glyphicon glyphicon-play"></span>
+                        </a></td>
                     </tr>
                 </tbody>
             </table>
@@ -71,3 +71,4 @@ include ("getCartArticles.php");
 
 </div>
 </div>
+

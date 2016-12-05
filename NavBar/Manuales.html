@@ -1,0 +1,43 @@
+<?php
+if(isset($_SESSION["usuario"]))
+{
+    if($_SESSION["usuario"]["IdNivel"] == 1)
+    {
+        include("administradores/sidebar-admin.html");
+    }
+    else if ($_SESSION["usuario"]["IdNivel"] == 2){
+        include("usuarios/sidebar-user.html");
+    }
+    else{
+        include("usuarios/sidebar-nologin.html");
+        
+    }
+}
+else{
+    include("NoLogueado/sidebar-nologin.html");
+}
+?>
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h2 class="placeholder">Manuales</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Tecnico</h3>
+            </div>
+
+            <div class="col-md-6">
+                <h3>Usuario</h3>
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <iframe src="http://docs.google.com/gview?url=http://proyectosinformaticatnl.ceti.mx/super-maket/Proyecto/files/Manuales/Comenzar.pdf&embedded=true" style="width:100%; height:800px;" frameborder="0"></iframe>
+                
+            </div>
+
+            <div class="col-md-6">
+                <iframe src="http://docs.google.com/gview?url=http://victorpimentel.com/stuff/rubik.pdf&embedded=true" style="width:100%; height:800px;" frameborder="0"></iframe>
+                
+            </div>
+        </div>
+</div>

@@ -32,7 +32,7 @@ else
 {
     $nr = mysqli_num_rows($resultado);
     if($nr >= 1)
-        header("Location:../index.php?e=Ya se encuentra este articulo, aumente las existenias en vez de agregar uno nuevo");
+        header("Location:../index.php?notificacion=Ya se encuentra este articulo, aumente las existenias en vez de agregar uno nuevo");
     else
     {
         $idusuario = $_SESSION["usuario"]["Id"];
@@ -41,7 +41,7 @@ else
              " values ('$nombre', '$descripcion', '$idcategoria', '$precioVenta', '$cantidad', '$idusuario', '$destino')";
              echo $consulta;
         if (mysqli_query($conecta, $consulta)) {
-            header("Location:../index.php");
+            header("Location:../index.php?notificacion=agregado correctamente");
         } else {
             echo "Error: " . $consulta . "<br>" . mysqli_error($conn) . $contra;
         }

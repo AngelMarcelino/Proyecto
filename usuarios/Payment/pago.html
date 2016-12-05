@@ -1,0 +1,42 @@
+<?php include("sidebar-user.html") ?>
+<script>
+    function pago()
+    {
+        if(confirm("¿Está usted seguro que desea proceder con el pago?"))
+        {
+            window.location = getUrl() + "/usuarios/Payment/pago.php";
+        }
+    }
+</script> 
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h2 class="placeholder">P&oacute;ngase en contacto</h2>
+        <div class="row top-row">
+            <label class="col-md-2">Seleccione tipo de tarjeta</label>
+            <label class="col-md-1">Visa</label>
+            <div class="col-md-1">
+                <input required type="radio" class="form-control" name="Tarjeta">
+            </div>
+            <label class="col-md-1">Master Card</label>
+            <div class="col-md-1">
+                <input required type="radio" class="form-control" name="Tarjeta">
+            </div>
+            <label class="col-md-1">American Express</label>
+            <div class="col-md-1">
+                <input required type="radio" class="form-control" name="Tarjeta">
+            </div>
+        </div>
+        <div class="row top-row">
+            <label class="col-md-2">Ingrese numero de tarjeta de credito</label>
+            <div class="col-md-10">
+                <input required type="text" class="form-control" name="Numero">
+            </div>
+        </div>
+        <div class="row top-row">
+            <div class="col-md-offset-11 col-md-1">
+                <div class="pull-right">
+                    <button onclick="pago()" class="btn btn-default btn-lg">Pagar<button>
+                </div>
+            </div>
+        </div>
+</div>
+

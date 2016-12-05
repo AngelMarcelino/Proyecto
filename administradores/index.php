@@ -15,7 +15,7 @@ if(!isset($_SESSION["usuario"]))
 include("links.html");
 include("scripts.html");
 
-$pagina = "inicio.php";
+$pagina = "Users/usuarios.html";
 if(isset($_GET["pagina"])){
     if($_GET["pagina"] != "")
     {
